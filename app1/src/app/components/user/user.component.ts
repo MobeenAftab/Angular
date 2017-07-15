@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-user',
@@ -13,11 +12,10 @@ export class UserComponent implements OnInit {
   age: number;
   address: Address;    // address is of type object
   hobbies: string[];
-  posts: Post[];
   isEdit: boolean = false;
 
   // Dependency injector
-  constructor(private dataService:DataService) {
+  constructor() {
     console.log('constructor ran');
   }
 
@@ -34,11 +32,6 @@ export class UserComponent implements OnInit {
     }
     this.hobbies = ['hobby 1', 'hobby 2', 'hobby 3'];
 
-    // Getposts return observable so we need to subscribe
-    this.dataService.getPosts().subscribe((posts) => {
-      //console.log('Posts Fetched');
-      this.posts = posts;
-    });
   }
 
   // Button Event
@@ -74,12 +67,4 @@ interface Address {
    street:string,
    city:string,
    postCode:string
-}
-
-// Struct for fetched posts
-interface Post {
-    id: number,
-    title: string,
-    body: string,
-    userId: number
 }

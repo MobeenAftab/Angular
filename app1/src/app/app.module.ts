@@ -11,13 +11,17 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 // Access to backend server API
 import { DataService } from './services/data.service';
+
 import { AboutComponent } from './components/about/about.component';
+import { HomeComponent } from './components/home/home.component';
+import { PostComponent } from './components/post/post.component';
 
 // Create router variables
 const appRoutes: Routes = [
-  {path:'', component:UserComponent},
+  {path:'', component:HomeComponent},
   {path:'about', component:AboutComponent},
-
+  {path:'user', component:UserComponent},
+  {path:'post', component:PostComponent}
 ];
 
 @NgModule({
@@ -25,6 +29,8 @@ const appRoutes: Routes = [
     AppComponent,
     UserComponent,
     AboutComponent,
+    HomeComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,59 +1,56 @@
-<h1>{{ name }}</h1>
-<ul>
-  <li>{{ age }}</li>
-  <li>{{ email }}</li>
-  <li>{{ address.street }} {{ address.city }} {{ address.postCode }}</li>
-</ul>
+<div class="fl w-100 container">
+  <h1>{{ name }}</h1>
+  <ul>
+    <li>{{ age }}</li>
+    <li>{{ email }}</li>
+    <li>{{ address.street }} {{ address.city }} {{ address.postCode }}</li>
+  </ul>
 
-<!-- <button (click)="ButtonOne()">Click Me</button> -->
-<button (click)="ToggleEdit()">Edit User</button>
+  <!-- <button (click)="ButtonOne()">Click Me</button> -->
+  <button (click)="ToggleEdit()">Edit User</button>
 
-<div *ngIf=isEdit>
+  <div *ngIf=isEdit>
 
-  <h1>Edit User</h1>
-  <form>
-    <div>
-      <label for="age">Name</label>
-      <input type="text" [(ngModel)]="name" name="name">
-    </div>
-    <div>
-      <label for="age">Email</label>
-      <input type="text" [(ngModel)]="email" name="email">
-    </div>
-    <div>
-      <label for="age">Age</label>
-      <input type="text" [(ngModel)]="age" name="age">
-    </div>
-    <div>
-      <label for="age">Street</label>
-      <input type="text" [(ngModel)]="address.street" name="street">
-    </div>
-    <div>
-      <label for="age">City</label>
-      <input type="text" [(ngModel)]="address.city" name="city">
-    </div>
-    <div>
-      <label for="age">Post Code</label>
-      <input type="text" [(ngModel)]="address.postCode" name="postCode">
+    <h1>Edit User</h1>
+    <form>
+      <div>
+        <label for="age">Name</label>
+        <input type="text" [(ngModel)]="name" name="name">
+      </div>
+      <div>
+        <label for="age">Email</label>
+        <input type="text" [(ngModel)]="email" name="email">
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <input type="text" [(ngModel)]="age" name="age">
+      </div>
+      <div>
+        <label for="age">Street</label>
+        <input type="text" [(ngModel)]="address.street" name="street">
+      </div>
+      <div>
+        <label for="age">City</label>
+        <input type="text" [(ngModel)]="address.city" name="city">
+      </div>
+      <div>
+        <label for="age">Post Code</label>
+        <input type="text" [(ngModel)]="address.postCode" name="postCode">
+      </div>
+    </form>
+  </div>
+
+  <h1>Hobbies</h1>
+  <form (submit)="AddHobby(hobby.value)">
+    <div class="">
+      <label for="hobby">Hobby:</label>
+      <input type="text" #hobby>
     </div>
   </form>
-</div>
+  <ul>
+    <li *ngFor="let hobby of hobbies; let i = index">
+      {{ i + 1 }}: {{ hobby }} <button (click)="DeleteHobby(hobby)">X</button>
+    </li>
+  </ul>
 
-<h1>Hobbies</h1>
-<form (submit)="AddHobby(hobby.value)">
-  <div class="">
-    <label for="hobby">Hobby:</label>
-    <input type="text" #hobby>
-  </div>
-</form>
-<ul>
-  <li *ngFor="let hobby of hobbies; let i = index">
-    {{ i + 1 }}: {{ hobby }} <button (click)="DeleteHobby(hobby)">X</button>
-  </li>
-</ul>
-
-<h1>Posts</h1>
-<div *ngFor="let post of posts">
-  <h4>{{ post.title }}</h4>
-  <p>{{ post.body }}</p>
 </div>
