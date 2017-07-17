@@ -8,8 +8,6 @@ import { DataService } from '../../services/data.service';
 })
 export class PostComponent implements OnInit {
 
-  even: Even[];
-  odd: Odd[];
   posts: Post[];
 
   constructor(private dataService:DataService) { }
@@ -25,20 +23,6 @@ export class PostComponent implements OnInit {
 
 // Struct for fetched posts
 interface Post {
-    id: number,
-    title: string,
-    body: string,
-    userId: number
-}
-
-interface Even {
-    id: number,
-    title: string,
-    body: string,
-    userId: number
-}
-
-interface Odd {
     id: number,
     title: string,
     body: string,

@@ -17,6 +17,12 @@ export class DataService {
       .map(res => res.json());
   }
 
+  GetUsers() {
+    // Fetch data from api, map json data returns all data from url into json
+    return this.http.get('https://jsonplaceholder.typicode.com/users')
+      .map(res => res.json());
+  }
+
 
 
 }

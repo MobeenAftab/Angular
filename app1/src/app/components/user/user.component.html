@@ -1,4 +1,4 @@
-<div class="fl w-100 container">
+<!-- <div class="fl w-100 container">
   <h1>{{ name }}</h1>
   <ul>
     <li>{{ age }}</li>
@@ -6,7 +6,6 @@
     <li>{{ address.street }} {{ address.city }} {{ address.postCode }}</li>
   </ul>
 
-  <!-- <button (click)="ButtonOne()">Click Me</button> -->
   <button (click)="ToggleEdit()">Edit User</button>
 
   <div *ngIf=isEdit>
@@ -53,4 +52,22 @@
     </li>
   </ul>
 
+</div> -->
+
+<div *ngFor="let user of users">
+  <p>{{ user.id }}</p>
+  <p>{{ user.name }}</p>
+  <p>{{ user.username }}</p>
+  <p>{{ user.email }}</p>
+  <p>{{ user.address.street }}</p>
+  <p>{{ user.address.suite }}</p>
+  <p>{{ user.address.city }}</p>
+  <p>{{ user.address.zipCode }}</p>
+  <p>{{ user.address.geo.lat }}</p>
+  <p>{{ user.address.geo.lng }}</p>
+  <p>{{ user.phone }}</p>
+  <p>{{ user.website }}</p>
+  <p>{{ user.company.name }}</p>
+  <p>{{ user.company.catchPhrase }}</p>
+  <p>{{ user.company.bs }}</p>
 </div>
