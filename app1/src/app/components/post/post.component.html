@@ -1,9 +1,24 @@
-<div class="container fl w-100">
+<!-- TODO:: filter post options and display all posts -->
+<div class="container">
   <h1 class="f1">Posts</h1>
 
-  <div *ngFor="let post of posts">
-    <h4>{{ post.title }}</h4>
-    <p>{{ post.body }}</p>
-  </div>
+  <section class="fl w-100 mw10 mw12-ns center">
+    <div *ngFor="let post of posts">
+
+      <div class="mb4 pb2 bg-light-gray">
+        <div class="mw10 center ph3-ns">
+          <div class="cf ph2-ns">
+
+            <div class="">
+              <h4 class="f4 underline tc grow">{{ post.title }}</h4>
+              <p class="b--dotted bw1 br3 pa2 b--light-red dim">{{ post.body }}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 </div>

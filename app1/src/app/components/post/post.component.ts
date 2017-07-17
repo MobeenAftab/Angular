@@ -23,8 +23,8 @@ export class PostComponent implements OnInit {
 
 // Struct for fetched posts
 interface Post {
+    userId: number,
     id: number,
     title: string,
-    body: string,
-    userId: number
+    body: string
 }

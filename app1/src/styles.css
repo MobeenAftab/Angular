@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 * {
-  font-family: sans-serif;
-}
+  font-family: roboto, arial, sans-serif;
+ }
 
 html, body {
   width: 100%;
@@ -11,26 +11,132 @@ html, body {
 }
 
 .container {
-  padding: 1rem;
-  margin: 1rem;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }
 
 ul {
   width: 100%;
 }
+
 ul, li {
   list-style: none;
   display: inline;
   float: right;
   padding: 5px;
-  margin: 5px;
-  max-width: 100%;
+  margin: 0px;
 }
 
-a:hover {
-  color: green;
+.lh-copy {
+    line-height: 1.5;
 }
 
-.line {
-  border-bottom: 2px solid red;
+.link {
+    text-decoration: none;
+    transition: color .15s ease-in;
+}
+
+.link:link, .link:visited {
+    transition: color .15s ease-in;
+}
+
+.link:hover {
+    transition: color .15s ease-in;
+}
+
+.link:active {
+    transition: color .15s ease-in;
+}
+
+.link:focus {
+    transition: color .15s ease-in;
+    outline: 1px dotted currentColor;
+}
+
+.black {
+    color: #000;
+}
+.hover-dark-red:hover {
+    color: #e7040f;
+}
+
+.hover-dark-red:focus {
+    color: #e7040f;
+}
+
+.hover-red:hover {
+    color: #ff4136;
+}
+
+.hover-red:focus {
+    color: #ff4136;
+}
+
+.hover-purple:hover {
+    color: #5e2ca5;
+}
+
+.hover-purple:focus {
+    color: #5e2ca5;
+}
+
+.hover-light-purple:hover {
+    color: #a463f2;
+}
+
+.hover-light-purple:focus {
+    color: #a463f2;
+}
+
+.hover-dark-green:hover {
+    color: #137752;
+}
+
+.hover-dark-green:focus {
+    color: #137752;
+}
+
+.hover-navy:hover {
+    color: #001b44;
+}
+
+.hover-navy:focus {
+    color: #001b44;
+}
+
+.hover-dark-blue:hover {
+    color: #00449e;
+}
+
+.hover-dark-blue:focus {
+    color: #00449e;
+}
+
+.hover-blue:hover {
+    color: #357edd;
+}
+
+.hover-blue:focus {
+    color: #357edd;
+}
+
+.f4 {
+    font-size: 1.25rem;
 }

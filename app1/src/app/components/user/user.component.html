@@ -54,20 +54,101 @@
 
 </div> -->
 
-<div *ngFor="let user of users">
-  <p>{{ user.id }}</p>
-  <p>{{ user.name }}</p>
-  <p>{{ user.username }}</p>
-  <p>{{ user.email }}</p>
-  <p>{{ user.address.street }}</p>
-  <p>{{ user.address.suite }}</p>
-  <p>{{ user.address.city }}</p>
-  <p>{{ user.address.zipCode }}</p>
-  <p>{{ user.address.geo.lat }}</p>
-  <p>{{ user.address.geo.lng }}</p>
-  <p>{{ user.phone }}</p>
-  <p>{{ user.website }}</p>
-  <p>{{ user.company.name }}</p>
-  <p>{{ user.company.catchPhrase }}</p>
-  <p>{{ user.company.bs }}</p>
+<!-- TODO make search user button -->
+<div class="container">
+
+  <section class="fl w-100 mw10 mw12-ns center">
+    <div *ngFor="let user of users">
+      <div class="bg-light-gray mb4 pb2">
+
+        <div class="mw10 center ph3-ns">
+          <div class="cf ph2-ns">
+
+            <!-- User section -->
+
+            <div class="fl w-100 w-100-ns pa1">
+              <div class="bb mb2">
+                <h4 class="f3 ttu tc"> {{ user.name }}</h4>
+              </div>
+            </div>
+
+            <div class="grow">
+              <div class="fl w-100 w-third-ns pa2 bg-lightest-blue">
+                <p>User ID: <span class="fr">{{ user.id }}</span></p>
+              </div>
+
+              <div class="fl w-100 w-third-ns pa2 bg-light-blue">
+                <p>User Name: <span class="fr">{{ user.username }}</span></p>
+              </div>
+
+              <div class="fl w-100 w-third-ns pa2 bg-blue">
+                <p>Email: <span class="fr">{{ user.email }}</span></p>
+              </div>
+            </div>
+
+            <!-- Address section -->
+
+            <div class="grow">
+              <div class="fl w-100 w-25-ns pa2 bg-lightest-blue">
+                <p>Street: <span class="fr">{{ user.address.street }}</span></p>
+              </div>
+
+              <div class="fl w-100 w-25-ns pa2 bg-lightest-blue">
+                <p>{{ user.address.suite }}</p>
+              </div>
+
+              <div class="fl w-100 w-25-ns pa2 bg-light-blue">
+                <p>{{ user.address.city }}</p>
+              </div>
+
+              <div class="fl w-100 w-25-ns pa2 bg-blue">
+                <p>ZipCode: <span class="fr">{{ user.address.zipcode }}</span></p>
+              </div>
+            </div>
+
+            <div class="grow">
+              <div class="fl w-100 w-50-ns pa2 bg-lightest-blue">
+                <p>LAT: <span class="fr">{{ user.address.geo.lat }}</span></p>
+              </div>
+
+              <div class="fl w-100 w-50-ns pa2 bg-light-blue">
+                <p>LNG: <span class="fr">{{ user.address.geo.lng }}</span></p>
+              </div>
+            </div>
+
+            <!-- Contact Details -->
+
+            <div class="fl w-100 pa2 bg-lightest-blue grow tc">
+              <p>Phone Number: {{ user.phone }}</p>
+            </div>
+
+            <!-- Company Details -->
+
+            <div class="fl w-100 w-100-ns pa2 f4 ttu purple">
+              <div class="bb pb2">
+                <p class="tc">{{ user.company.name }}</p>
+              </div>
+            </div>
+
+            <div class="fl w-100 w-100-ns pa2 bg-light-red grow">
+              <p class="tc">{{ user.website }}</p>
+            </div>
+
+            <div class="tc grow">
+              <div class="fl w-100 w-50-ns pa2 bg-red">
+                <p>{{ user.company.catchPhrase }}</p>
+              </div>
+
+              <div class="fl w-100 w-50-ns pa2 bg-dark-red">
+                <p>{{ user.company.bs }}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 </div>

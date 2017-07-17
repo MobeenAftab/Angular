@@ -16,7 +16,7 @@ export class UserComponent implements OnInit {
   //
 
   users: User[];
-  address: Address[];
+  address: Address;
   geo: Geo;
   contactDetails:ContactDetails;
   company:Company;
@@ -92,7 +92,7 @@ interface Address {
    street:string,
    suite: string,
    city:string,
-   zipCode:string,
+   zipcode:string,
    geo: Geo
 }
 
