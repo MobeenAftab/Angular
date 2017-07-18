@@ -1,2 +1,22 @@
+<!--
+  [ ] = property binding: better for dynamically changing property value of html element or directive
+  ( ) = event binding
+  $event = default method provided by DOM to transfer data as argument when activated
+  {{ }} = String interpolation: best for outputing text into template
+  [( )] = directive: are instructions in the DOM
+-->
+
+<div class="form-control">
+  <label>Server Name</label>
+  <!-- One way data binding -->
+  <!-- <input type="text" class="form-control" (input)="OnServerName($event)"> -->
+  <!-- Two way data binding -->
+  <input type="text" class="form-control" [(ngModel)]="serverName">
+  <!-- <p>{{ serverName }}</p> -->
+  <button class="btn btn-primary" [disabled]="!addServer" (click)="OnCreateServer()">Start New Server</button>
+</div>
+
+<p [innerText]="addServer"></p>
+<p>{{ serverCreation }}</p>
 <app-server></app-server>
 <app-server></app-server>

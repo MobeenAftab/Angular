@@ -13,7 +13,7 @@ import { ServersComponent } from './servers/servers.component';
   declarations: [
     AppComponent,
     ServerComponent,
-    ServersComponent
+    ServersComponent,
   ],
   //Add other modules
   imports: [
