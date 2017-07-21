@@ -17,6 +17,8 @@ export class ServersComponent implements OnInit {
   addServer: boolean = false;
   serverCreation: string = 'No server created';
   serverName: string = 'Server Name';
+  serverCreated: boolean = false;
+  servers = ['TestServer', 'testServer 2'];
 
   constructor() {
     // Allow user to add server after 2 seconds
@@ -29,6 +31,8 @@ export class ServersComponent implements OnInit {
   }
 
   OnCreateServer() {
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreation = 'Server' + this.serverName +  'cretaed!';
   }
 
