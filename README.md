@@ -4,8 +4,10 @@ Repo for angular related apps
 ## App List
 * Test : Testing ground for angular related features.
 * app1 : Playing with (jsonplaceholder)[https://jsonplaceholder.typicode.com/] API, dynamically changing the DOM depending on returned data.
+* CookShop : Browse recipes and shop for their ingredients.
 
 ## Notes
+* ng set defaults.styleExt scss or ng new My_New_Project --style=scss
 * [ ] = property binding: better for dynamically changing property value of html element or directive.
 * ( ) = event binding
 $event = default method provided by DOM to transfer data as argument when activated.
