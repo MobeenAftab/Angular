@@ -1,17 +1,27 @@
+<!--
+  #localReference : replace two way data binding [()] with local reference to get
+  access element from DOM. Use this to pass through element.value from input into
+  TS code - left both methods below as example.
+-->
 <div class="row">
   <div class="col-xs-12">
     <p>Add new Servers or blueprints!</p>
     <label>Server Name</label>
-    <input type="text" class="form-control" [(ngModel)]="newServerName">
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerName"> -->
+    <input
+      type="text"
+      class="form-control"
+      #serverNameInput>
     <label>Server Content</label>
-    <input type="text" class="form-control" [(ngModel)]="newServerContent">
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+    <input type="text" class="form-control" #serverContentInput>
     <br>
     <button
       class="btn btn-primary"
-      (click)="OnAddServer()">Add Server</button>
+      (click)="OnAddServer(serverNameInput)">Add Server</button>
     <button
       class="btn btn-primary"
-      (click)="OnAddBlueprint()">Add Server Blueprint</button>
+      (click)="OnAddBlueprint(serverNameInput)">Add Server Blueprint</button>
   </div>
 </div>
 <hr>
