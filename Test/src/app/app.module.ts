@@ -7,7 +7,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
-import { DirectiveTest } from './directive-test/dir-test.directive'
+import { DirectiveTest } from './directive-test/dir-test.directive';
+import { NumbersComponent } from './numbers/numbers.component'
 
 @NgModule({
   //Load components
@@ -15,7 +16,8 @@ import { DirectiveTest } from './directive-test/dir-test.directive'
     AppComponent,
     ServerComponent,
     ServersComponent,
-    DirectiveTest
+    DirectiveTest,
+    NumbersComponent
   ],
   //Add other modules
   imports: [
