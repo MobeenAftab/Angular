@@ -14,7 +14,7 @@
             {{ odd }}
           </li>
         </div>
-        <div *ngIf="!oddNumbers">
+        <!-- <div *ngIf="!oddNumbers">
           <li
           class="list-group-item"
           [ngClass]="{even: even % 2 == 0}"
@@ -22,6 +22,39 @@
           *ngFor="let even of evenNums">
             {{ even }}
           </li>
+        </div> -->
+
+        <!-- * is a structural directive which is renderer as below,
+                Will work exactly the same as code above-->
+        <!-- <ng-template [ngIf]="!oddNumbers">
+          <div>
+            <li
+            class="list-group-item"
+            [ngClass]="{odd: odd % 2 !== 0}"
+            [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'green' : 'transparent'}"
+            *ngFor="let odd of oddNums">
+              {{ odd }}
+            </li>
+          </div>
+        </ng-template> -->
+        <!-- Custom structural directive -->
+        <div *appUnless="oddNumbers">
+          <li
+          class="list-group-item"
+          [ngClass]="{even: even % 2 == 0}"
+          [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'red' : 'transparent'}"
+          *ngFor="let even of evenNums">
+            {{ even }}
+          </li>
+        </div>
+
+        <!-- ngSwitch directive -->
+        <p>Current Value: {{value}}</p>
+        <div [ngSwitch]="value">
+            <p *ngSwitchCase="5">Value is 5</p>
+            <p *ngSwitchCase="10">Value is 10</p>
+            <p *ngSwitchCase="100">Value is 100</p>
+            <p *ngSwitchDefault>Value is Default</p>
         </div>
       </ul>
     </div>

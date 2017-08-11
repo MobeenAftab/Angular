@@ -18,7 +18,9 @@
         {{ logItem }}
       </div>
       <br>
-      <p app-directiveTest> Directive Test</p>
+      <p app-directiveTest> Directive Test </p>
+      <!-- Example of custom property binding -->
+      <p [appBetterDirective]="'red'" [defaultColor]="'yellow'"> Directive Test Two - better directive</p>
       <br><br>
     </div>
   </div>
