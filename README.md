@@ -21,3 +21,6 @@ $event = default method provided by DOM to transfer data as argument when activa
 * #localReference : replace two way data binding [()] with local reference to
   access whole element from DOM. Use this to pass through element.value from input into
   TS code.
+* Dependency injection with services - DI is a way of instantiating a class automatically into a component.
+* Proving =  a service is telling angular how to create it Adding a service to providers will create a new instance of it, overriding pervious instances
+* Injectable is meta data so a service can inject another service into itself, Usually added to the receiving service
