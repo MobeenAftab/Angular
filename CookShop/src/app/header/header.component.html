@@ -12,12 +12,13 @@
         <a class="nav-link" href="#" (click)="OnSelect('shopping-list')">Shopping List</a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="nav-item dropdown" appDrowdown>
-        <a class="nav-link dropdown-toggle" href="#" role="button"><span class="caret"></span>
+    <ul class="nav navbar-nav navbar-right dropdown show">
+      <li class="nav-item dropdown" appDropdown>
+        <a class="nav-link dropdown-toggle" href="#" role="button"
+         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span>
           Manage
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu">
           <a class="dropdown-item" href="#">Save Data</a>
           <a class="dropdown-item" href="#">Fetch Data</a>
         </div>
