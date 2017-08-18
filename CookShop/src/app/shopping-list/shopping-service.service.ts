@@ -15,9 +15,19 @@ export class ShoppingService {
     return this.ingredients.slice();
   }
 
-  addIngredients(ingredient: Ingredient) {
+  addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     // Return new copy of array
+    this.ingChanged.emit(this.ingredients.slice());
+  }
+
+  addIngredients(ingredients: Ingredient[]) {
+    // for (let ingredient of ingredients) {
+    //   this.addIngredient(ingredient);
+    // }
+    // ES6 spread (...) feature which turns array of elements into a list of elements
+    this.ingredients.push(...ingredients);
+    // Updated copy of array
     this.ingChanged.emit(this.ingredients.slice());
   }
 }
