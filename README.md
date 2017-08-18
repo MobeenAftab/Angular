@@ -5,7 +5,9 @@ Repo for angular related apps
 * Test : Testing ground for angular related features.
 * app1 : Playing with (jsonplaceholder)[https://jsonplaceholder.typicode.com/] API, dynamically changing the DOM depending on returned data and (Tachyion.io)[http://tachyons.io/].
 * CookShop : Browse recipes and shop for their ingredients.
-* ComponentDatabinding: various methods of communicating data between components and life cycle hooks.
+* Component Databinding: various methods of communicating data between components and life cycle hooks.
+* Services Tutorial: Playing around with services in angular, passing data between components.
+* Routing Tutorial: Learning routing directive in angular.
 
 ## Notes
 * ng set defaults.styleExt scss or ng new My_New_Project --style=scss
