@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Client } from '../../models/client';
 
 @Component({
   selector: 'app-add-clients',
@@ -6,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-clients.component.css']
 })
 export class AddClientsComponent implements OnInit {
+
+  client:Client = {
+    firstName:'',
+    lastName:'',
+    email:'',
+    phone:'',
+    balance:0
+  }
+  disableBalanceOnAdd:boolean = true;
 
   constructor() { }
 
