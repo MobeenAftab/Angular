@@ -2,6 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+//Angular fire imports
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+// Services import
+import { ClientService } from './services/client.service';
+
+// Component imports
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClientsComponent } from './components/clients/clients.component';
@@ -21,6 +30,14 @@ const appRoutes: Routes = [
   { path: 'login', component:LoginComponent },
 ];
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyD-NqCGNbHdG46Yuov_sld2D-kk0sdysGE",
+  authDomain: "client-tracker-c7c39.firebaseapp.com",
+  databaseURL: "https://client-tracker-c7c39.firebaseio.com",
+  storageBucket: "client-tracker-c7c39.appspot.com",
+  messagingSenderId: "962836109471"
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,9 +55,14 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [],
+  providers: [
+    AngularFireAuth,
+    AngularFireDatabase,
+    ClientService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
