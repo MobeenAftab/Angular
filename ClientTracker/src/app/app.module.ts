@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-//Angular third party modules
+// Angular third party modules
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -12,6 +12,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 // Services import
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 // Component imports
 import { AppComponent } from './app.component';
@@ -28,12 +29,12 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { Page404Component } from './components/page404/page404.component';
 
 const appRoutes: Routes = [
-  { path: '', component:DashboardComponent },
-  { path: 'register', component:RegisterComponent },
-  { path: 'login', component:LoginComponent },
-  { path: 'add-client', component:AddClientsComponent },
-  { path: 'client/:id', component:ClientsDetailsComponent },
-  { path: 'edit-client/:id', component:EditClientsComponent }
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'add-client', component: AddClientsComponent, canActivate: [AuthGuard] },
+  { path: 'client/:id', component: ClientsDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'edit-client/:id', component: EditClientsComponent, canActivate: [AuthGuard] }
 ];
 
 export const firebaseConfig = {
@@ -70,7 +71,8 @@ export const firebaseConfig = {
     AngularFireAuth,
     AngularFireDatabase,
     ClientService,
-    AuthService
+    AuthService,
+    AuthGuard
     ],
   bootstrap: [AppComponent]
 })
