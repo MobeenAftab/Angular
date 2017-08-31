@@ -18,4 +18,21 @@ export class ClientService {
     return this.clients;
   }
 
+  newClient(client:Client) {
+    this.clients.push(client);
+  }
+
+  getClient(id: string) {
+    this.client = this.AFDB.object('/clients/'+id) as FirebaseObjectObservable<Client>;
+    return this.client;
+  }
+
+  updateClient(id: string, client:Client) {
+    return this.clients.update(id, client);
+  }
+
+  deleteClient(id: string) {
+    return this.clients.remove(id);
+  }
+
 }

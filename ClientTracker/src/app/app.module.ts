@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-//Angular fire imports
+//Angular third party modules
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 // Services import
 import { ClientService } from './services/client.service';
+import { AuthService } from './services/auth.service';
 
 // Component imports
 import { AppComponent } from './app.component';
@@ -29,8 +31,9 @@ const appRoutes: Routes = [
   { path: '', component:DashboardComponent },
   { path: 'register', component:RegisterComponent },
   { path: 'login', component:LoginComponent },
-  { path: 'add-client', component:AddClientsComponent }
-
+  { path: 'add-client', component:AddClientsComponent },
+  { path: 'client/:id', component:ClientsDetailsComponent },
+  { path: 'edit-client/:id', component:EditClientsComponent }
 ];
 
 export const firebaseConfig = {
@@ -59,13 +62,15 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     FormsModule,
+    FlashMessagesModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [
     AngularFireAuth,
     AngularFireDatabase,
-    ClientService
+    ClientService,
+    AuthService
     ],
   bootstrap: [AppComponent]
 })
