@@ -12,7 +12,9 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 // Services import
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
+import { SettingsService } from './services/settings.service';
 import { AuthGuard } from './guards/auth.guard';
+import { RegisterGuard } from './guards/Register.guard';
 
 // Component imports
 import { AppComponent } from './app.component';
@@ -30,19 +32,21 @@ import { Page404Component } from './components/page404/page404.component';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent,  canActivate: [RegisterGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'add-client', component: AddClientsComponent, canActivate: [AuthGuard] },
   { path: 'client/:id', component: ClientsDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'edit-client/:id', component: EditClientsComponent, canActivate: [AuthGuard] }
+  { path: 'edit-client/:id', component: EditClientsComponent, canActivate: [AuthGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: '**', component: Page404Component }
 ];
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyD-NqCGNbHdG46Yuov_sld2D-kk0sdysGE",
-  authDomain: "client-tracker-c7c39.firebaseapp.com",
-  databaseURL: "https://client-tracker-c7c39.firebaseio.com",
-  storageBucket: "client-tracker-c7c39.appspot.com",
-  messagingSenderId: "962836109471"
+  apiKey: 'AIzaSyD-NqCGNbHdG46Yuov_sld2D-kk0sdysGE',
+  authDomain: 'client-tracker-c7c39.firebaseapp.com',
+  databaseURL: 'https://client-tracker-c7c39.firebaseio.com',
+  storageBucket: 'client-tracker-c7c39.appspot.com',
+  messagingSenderId: '962836109471'
 }
 
 @NgModule({
@@ -72,7 +76,9 @@ export const firebaseConfig = {
     AngularFireDatabase,
     ClientService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    SettingsService,
+    RegisterGuard
     ],
   bootstrap: [AppComponent]
 })

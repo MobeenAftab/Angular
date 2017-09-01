@@ -3,6 +3,7 @@ import { ClientService } from '../../services/client.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Client } from '../../models/Client';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-edit-clients',
@@ -22,16 +23,20 @@ export class EditClientsComponent implements OnInit {
 
   disableBalanceOnEdit: boolean = true;
 
-  constructor(private CS: ClientService,
-              private router: Router,
-              private route: ActivatedRoute,
-              private FMS: FlashMessagesService) { }
+  constructor(
+    private CS: ClientService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private FMS: FlashMessagesService,
+    private settingsService: SettingsService) { }
 
   ngOnInit() {
+    // Get client
     this.id = this.route.snapshot.params['id'];
     this.CS.getClient(this.id).subscribe(client => {
       this.client = client;
     });
+    this.disableBalanceOnEdit = this.settingsService.getSettings().disableBalanceOnEdit;
   }
 
   onSubmit({value, valid}: {value: Client, valid: boolean}) {
