@@ -33,6 +33,11 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
+  // Return recipe selected based on id
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
+
   // Post recipe ingredients to shopping list
   postIngredientsToShopping(ingredients: Ingredient[]) {
     this.shoppingService.addIngredients(ingredients);
