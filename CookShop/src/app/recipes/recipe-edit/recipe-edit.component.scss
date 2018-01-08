@@ -2,3 +2,8 @@
     margin: 0.1rem;
     padding: 0.1rem;
 }
+
+input.ng-invalid.ng-touched,
+text.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
