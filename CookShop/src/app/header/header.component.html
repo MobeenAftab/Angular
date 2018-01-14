@@ -4,21 +4,16 @@
   </button>
   <a class="navbar-brand" routerLink="">CookShop</a>
   <div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav navbar-left">
       <li class="nav-item">
         <a class="nav-link" routerLink="/recipes" routerLinkActive="active">Recipes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/shopping-list" routerLinkActive="active">Shopping List</a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="#" (click)="OnSelect('recipe')">Recipes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" (click)="OnSelect('shopping-list')">Shopping List</a>
-      </li> -->
     </ul>
-    <ul class="nav navbar-nav navbar-right dropdown show">
+    
+    <ul class="nav navbar-nav navbar-right">
       <li class="nav-item dropdown" appDropdown>
         <a class="nav-link dropdown-toggle" role="button"
          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span>
@@ -28,6 +23,12 @@
           <a class="dropdown-item" (click)="onSaveData()">Save Data</a>
           <a class="dropdown-item" (click)="onFetchData()">Fetch Data</a>
         </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signup" routerLinkActive="active">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signin" routerLinkActive="active">Log In</a>
       </li>
     </ul>
   </div>
