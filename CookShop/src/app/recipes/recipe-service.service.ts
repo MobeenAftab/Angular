@@ -30,6 +30,12 @@ export class RecipeService {
   ])
   ];
 
+  // Replace existing recipes with recipe placeholder
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipeChanged.next(this.recipes.slice());
+  }
+
   // Get a copy of recipes, not a reference to the array.
   getRecipes() {
     return this.recipes.slice();

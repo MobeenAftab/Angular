@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FirebaseService } from '../shared/firebase.service';
+import { Response } from '@angular/http/src/static_response';
 
 @Component({
   selector: 'app-header',
@@ -13,5 +15,21 @@ export class HeaderComponent {
   // OnSelect(feature: string) {
   //   this.featureSelected.emit(feature);
   // }
+
+  constructor (private fb: FirebaseService) {
+
+  }
+
+  onSaveData() {
+    this.fb.storeRecipes()
+    .subscribe((response: Response) => {
+      console.log(response);
+    });
+  }
+
+  onFetchData() {
+    this.fb.getRecipes();
+    console.log('Recipes fetched');
+  }
 
 }
