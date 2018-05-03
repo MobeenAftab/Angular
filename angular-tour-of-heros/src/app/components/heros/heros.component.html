@@ -1,0 +1,24 @@
+<h2>
+  <ul class="heros">
+    <!-- *ngFor is angulars repeater directive and event binding syntax -->
+    <li *ngFor="let hero of heros" 
+    (click)="onSelect(hero)"
+    [class.selected]="hero === selectedHero">
+    <!-- Class binding dynamically if hero is selected -->
+      <span class="heros">{{hero.id}}</span> {{hero.name}}
+    </li>
+  </ul>
+</h2>
+
+<!-- Hero details menu -->
+<!-- *ngIf is an angular directive and only displays content if true -->
+<div *ngIf="selectedHero">
+  <h2>{{ selectedHero.name | uppercase }} details</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+  <div>
+    <label>Name: 
+      <!-- ngModel two way databinding -->
+      <input [(ngModel)]="selectedHero.name" placeholder="name">
+    </label>
+  </div>
+</div>
