@@ -17,6 +17,9 @@ import { Observable } from 'rxjs/Observable';
 // Simulate getting data from a server using 'of' function.
 import { of as observableOf } from 'rxjs/observable/of'
 
+// Injecting message service into hero service.
+import { MessageService } from './message.service';
+
 import { Hero } from '../shared/hero';
 import { HEROES } from '../shared/mock-heros';
 
@@ -24,7 +27,8 @@ import { HEROES } from '../shared/mock-heros';
 @Injectable()
 export class HeroService {
 
-  constructor() {
+  // Typical "service in service" scenario.
+  constructor(private msgService: MessageService) {
     console.log('Hero Service executed');
   }
 
@@ -33,9 +37,11 @@ export class HeroService {
   //   return HEROES;
   // }
 
-  // Return list of heros async signature.
+  // Return list of heros, async signature.
   getHeroes(): Observable<Hero[]> {
-    // returns an Observable<Hero[]> that emits a single value, the array of mock heroes
+    // Send message to message service when fetching hero list.
+    this.msgService.add('HeroService: Fetched heroes');
+    // Returns an Observable<Hero[]> that emits a single value, the array of mock heroes
     return observableOf(HEROES);
   }
 
