@@ -19,7 +19,7 @@ export class HerosComponent implements OnInit {
   };
 
   // Exposing list of heros from mock-data
-  heros: Hero[];
+  heroes: Hero[];
 
   // No hero selected on init
   selectedHero: Hero;
@@ -43,8 +43,19 @@ export class HerosComponent implements OnInit {
     this.selectedHero = hero;
   }
 
+  // Subscribe to HeroService Promise, Returns an Observable<Hero[]>, async signature.
+  // Wait for the Observable to emit the array of heros and then subscribe passes the
+  // emmited array to the callback, which sets the components heroes property.
+  getHeroes(): void {
+    this. heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
+  }
+  /*
   // Retrieve the heroes from the service
   getHeroes(): void {
+    // This method has a synchronous (one at a time) signature.
+    // This will not work in a real app.
     this.heros = this.heroService.getHeros();
   }
+  */
 }
