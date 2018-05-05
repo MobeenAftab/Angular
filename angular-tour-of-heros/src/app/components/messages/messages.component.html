@@ -1,0 +1,12 @@
+<!-- Template binds directly to the components msgService -->
+
+<!-- Only show component if messages are availble -->
+<div *ngIf="msgService.messages.length">
+    <h2>Messages</h2>
+    <!-- Event bind button click even to msgService.clear() -->
+    <button class="clear"
+        (click)="msgService.clear()">Clear
+    </button>
+    <!-- Display list of messages -->
+    <div *ngFor='let msg of msgService.messages'>{{msg}}</div>
+</div>

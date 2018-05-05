@@ -7,6 +7,7 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { HeroService } from './services/hero.service';
 import { MessagesComponent } from './components/messages/messages.component';
+import { MessageService } from './services/message.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MessagesComponent } from './components/messages/messages.component';
   ],
   // A provider is something that can create or deliver a service; in this case it instantiats the HeroService class
   providers: [
-    HeroService
+    HeroService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
