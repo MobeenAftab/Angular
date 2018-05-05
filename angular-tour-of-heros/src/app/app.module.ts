@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HerosComponent } from './components/heros/heros.component';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
-
+import { HeroService } from './services/hero.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,10 @@ import { HeroDetailComponent } from './components/hero-detail/hero-detail.compon
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  // A provider is something that can create or deliver a service; in this case it instantiats the HeroService class
+  providers: [
+    HeroService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
