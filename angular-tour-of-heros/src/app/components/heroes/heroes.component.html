@@ -1,12 +1,12 @@
-<h2>My Heros</h2>
+<h2>My Heroes</h2>
 
-<ul class="heros">
+<ul class="heroes">
   <!-- *ngFor is angulars repeater directive and event binding syntax -->
-  <li *ngFor="let hero of heros" 
+  <li *ngFor="let hero of heroes" 
   (click)="onSelect(hero)"
   [class.selected]="hero === selectedHero">
   <!-- Class binding dynamically if hero is selected -->
-    <span class="heros">{{hero.id}}</span> {{hero.name}}
+    <span class="heroes">{{hero.id}}</span> {{hero.name}}
   </li>
 </ul>
 
