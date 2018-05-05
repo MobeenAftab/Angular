@@ -50,4 +50,9 @@ export class HeroDetailComponent implements OnInit {
       .subscribe(hero => this.hero = hero);
   }
 
+  // Return to previous URL location
+  goBack():void {
+    this.location.back();
+  }
+
 }
