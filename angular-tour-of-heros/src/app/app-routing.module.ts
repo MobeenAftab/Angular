@@ -10,10 +10,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components to route too.
 import { HeroesComponent } from './components/heroes/heroes.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
+
 
 // Const path for component URL routes.
 const routes: Routes = [
-  { path: 'heroes', component: HeroesComponent }
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'heroes', component: HeroesComponent },
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'detail/:id', component: HeroDetailComponent }
 ];
 @NgModule({
   // Exporting router module makes router directives available for use in the AppModule components.

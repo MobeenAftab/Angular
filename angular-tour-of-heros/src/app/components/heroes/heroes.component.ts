@@ -39,6 +39,7 @@ export class HeroesComponent implements OnInit {
   }
 
   // Respond to hero click event
+  // No longer used, navigate using routerLinks and observables
   onSelect(hero) {
     this.selectedHero = hero;
   }

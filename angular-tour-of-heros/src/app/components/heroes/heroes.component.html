@@ -3,13 +3,14 @@
 <ul class="heroes">
   <!-- *ngFor is angulars repeater directive and event binding syntax -->
   <li *ngFor="let hero of heroes" 
-  (click)="onSelect(hero)"
-  [class.selected]="hero === selectedHero">
+    (click)="onSelect(hero)">
+  <!--     [class.selected]="hero === selectedHero"> -->
   <!-- Class binding dynamically if hero is selected -->
-    <span class="heroes">{{hero.id}}</span> {{hero.name}}
+    <a routerLink="/detail/{{hero.id}}"></a>
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
 </ul>
 
 
 <!-- One way binding hero property using the @Input() decorator -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
