@@ -45,4 +45,10 @@ export class HeroService {
     return observableOf(HEROES);
   }
 
+  // Fetch and return a single hero as an Observable, async signature.
+  // Backticks `` that define a Js template literal for embedding the id.
+  getHero(id: number): Observable<Hero> {
+    this.msgService.add(`HeroService: fetched hero id = ${id}`);
+    return observableOf(HEROES.find(hero => hero.id === id));
+  }
 }
