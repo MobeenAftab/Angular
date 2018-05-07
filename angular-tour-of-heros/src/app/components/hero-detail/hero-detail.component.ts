@@ -55,4 +55,12 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
+  /**
+   * PUT: update the hero on the server.
+   */
+  onSave(): void {
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => this.goBack());
+  }
+
 }

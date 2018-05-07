@@ -1,4 +1,5 @@
 /**
+ * WARNING: JASON data wont presist unless 
  * Compenents shouldnt fetch or save data directly and should delegate data access to a serivice.
  * Using angulars dependency injection to inject hero data into all application classes.
  * Serices are a great way to share information among classes that dont know each other.
@@ -91,12 +92,78 @@ export class HeroService {
       return observableOf(result as T);
     };
   }
-
+  /*
   // Fetch and return a single hero as an Observable, async signature.
   // Backticks `` that define a Js template literal for embedding the id.
   getHero(id: number): Observable<Hero> {
     this.msgService.add(`HeroService: fetched hero id = ${id}`);
     return observableOf(HEROES.find(hero => hero.id === id));
+  }
+  */
+
+  /**
+   * Construct and get hero by id using REST API.
+   * @param id - id of the hero to return
+   */
+  getHero(id: number): Observable<Hero> {
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get<Hero>(url)
+      .pipe(
+        tap(_ => this.log(`fetched hero id=${id}`)),
+        catchError(this.handleError<Hero>(`getHero id=${id}`))
+      );
+  }
+
+  /** TODO: Not working
+   * PUT: update the hero on the server.
+   * PUT takes three params, the url, the hero id and the options.
+   * @param hero - Hero id to update
+   */
+  updateHero(hero: Hero): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+    };
+
+    return this.http.put(this.heroesUrl, hero, httpOptions)
+      .pipe(
+        tap(_ => this.log(`updated hero id=${hero.id}`)),
+        catchError(this.handleError<any>('updateHero'))
+      );
+  }
+
+  /** TODO: Data wont presist after save
+   * POST: add a new hero to the server.
+   * Server generates new id for hero and returns Observable<Hero>.
+   * @param hero - new hero to add
+   */
+  addHero(hero: Hero): Observable<Hero> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+    };
+
+    return this.http.post<Hero>(this.heroesUrl, hero, httpOptions)
+      .pipe(
+        tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
+        catchError(this.handleError<Hero>('addHero'))
+      );
+  }
+
+  /**
+   * DELETE: delete the hero from the server.
+   * @param hero - hero to delete
+   */
+  deleteHero(hero: Hero | number): Observable<Hero> {
+    const id = typeof hero === 'number' ? hero : hero.id;
+    const url = `${this.heroesUrl}/${id}`;
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+    };
+
+    return this.http.delete<Hero>(url, httpOptions)
+      .pipe(
+        tap(_ => this.log(`deleted hero is=${id}`)),
+        catchError(this.handleError<Hero>('deleteHero'))
+      );
   }
 
   // Send message to log.

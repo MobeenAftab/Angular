@@ -6,10 +6,20 @@
     (click)="onSelect(hero)">
   <!--     [class.selected]="hero === selectedHero"> -->
   <!-- Class binding dynamically if hero is selected -->
-    <a routerLink="/detail/{{hero.id}}"></a>
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero" (click)="onDelete(hero)">X</button>
   </li>
 </ul>
+
+<div>
+  <label>Hero Name: 
+    <input #heroName >
+  </label>
+  <!-- Pass input value to onAdd() and clear input -->
+  <button (click)="onAdd(heroName.value); heroName.value=''"> ADD </button>
+</div>
 
 
 <!-- One way binding hero property using the @Input() decorator -->

@@ -59,4 +59,26 @@ export class HeroesComponent implements OnInit {
     this.heroes = this.heroService.getHeros();
   }
   */
+
+  /**
+   * Request a new hero to be added to the server.
+   * @param name - new hero object with name param
+   */
+  onAdd(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
+
+  /**
+   * Delete this hero from hero array.
+   * @param hero - hero object to delete
+   */
+  onDelete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero).subscribe();
+  }
 }
